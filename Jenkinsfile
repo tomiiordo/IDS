@@ -4,11 +4,9 @@ pipeline {
         stage('Build') {
             steps {
                 sh "git pull origin main"
-                withGradle {
-                   sh './gradlew :spotlessApply'
-                   sh './gradlew clean build'
-                   sh './gradlew bootRun'
-                }
+                sh "bash ./gradlew :spotlessApply"
+   				sh 'bash ./gradlew clean build'
+                sh "bash ./gradlew bootRun"
             }
         }
         stage('Code coverage') {
