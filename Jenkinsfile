@@ -11,16 +11,12 @@ pipeline {
         }
         stage('Code coverage') {
             steps {
-                withGradle {
-                    sh './gradlew -i test jacocoTestReport'
-                }
+                sh "bash ./gradlew -i test jacocoTestReport"
             }
         }
          stage('Analyze') {
             steps {
-                withGradle {
-                    sh './gradlew sonarqube -Dsonar.projectKey=sonar.host.url -Dsonar.host.url=http://localhost:9000 -Dsonar.login=8ad9a11c2a13420c8fb144a5fc47e324'
-                }
+                sh "bash ./gradlew sonarqube -Dsonar.projectKey=sonar.host.url -Dsonar.host.url=http://localhost:9000 -Dsonar.login=8ad9a11c2a13420c8fb144a5fc47e324"
             }
         }
         stage('Test') {
