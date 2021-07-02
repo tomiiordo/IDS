@@ -1,5 +1,4 @@
-package java.model;
-
+package model;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.context.i18n.LocaleContextHolder;
