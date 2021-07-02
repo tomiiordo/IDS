@@ -21,7 +21,7 @@ pipeline {
         }
          stage('Analyze') {
             steps {
-                sh "bash ./gradlew sonarqube -Dsonar.projectKey=http://172.18.0.2:9000 -Dsonar.host.url=http://172.18.0.2:9000 -Dsonar.login=admin -Dsonar.password=admin1234"
+                sh "bash ./gradlew sonarqube -Dsonar.projectKey=sonar.host.url -Dsonar.host.url=http://172.18.0.2:9000 -Dsonar.login=admin -Dsonar.password=admin1234"
             }
         }
 
